@@ -4,11 +4,22 @@
 #include <unordered_map>
 #include <string>
 using namespace std;
+enum points
+{
+    loss = 0, draw = 3, win = 6,
+    rock = 1, paper = 2, scissor = 3
+};
 
-unordered_map<string, int> lookup1 = {{"A X",3+1},{"A Y",6+2},{"A Z",0+3},{"B X",0+1},{"B Y",3+2},{"B Z",6+3},{"C X",6+1},{"C Y",0+2},{"C Z",3+3}};
-unordered_map<string, int> lookup2 = {{"A X",0+3},{"A Y",3+1},{"A Z",6+2},{"B X",0+1},{"B Y",3+2},{"B Z",6+3},{"C X",0+2},{"C Y",3+3},{"C Z",6+1}};
+unordered_map<string, int> lookup1 = {{"A X", draw + rock}, {"A Y", win + paper}, {"A Z", loss + scissor}, 
+                                      {"B X", loss + rock}, {"B Y", draw + paper}, {"B Z", win + scissor}, 
+                                      {"C X", win + rock}, {"C Y", loss + paper}, {"C Z", draw + scissor}};
 
-int main() {
+unordered_map<string, int> lookup2 = {{"A X", loss + scissor}, {"A Y", draw + rock}, {"A Z", win + paper},
+                                      {"B X", loss + rock}, {"B Y", draw + paper}, {"B Z", win + scissor}, 
+                                      {"C X", loss + paper}, {"C Y", draw + scissor}, {"C Z", win + rock}};
+
+int main()
+{
     int sum1 = 0, sum2 = 0;
     fstream input("input.txt");
     string str_input;
