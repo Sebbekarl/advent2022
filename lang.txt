@@ -5,7 +5,7 @@
 
 java
 typeScript
-elixir
+clojure
 kotlin
 go
 lua
@@ -17,7 +17,7 @@ c#
 visual basic
 
 ? unity shader
-? clojure
+? elixir
 ? dart
 ? matlab
 
