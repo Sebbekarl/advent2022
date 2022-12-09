@@ -1,4 +1,5 @@
 import numpy as np
+from matplotlib import pyplot as plt
 
 visited = set()
 directions = {"R" : np.array([1, 0]), "L" : np.array([-1, 0]), "U" : np.array([0, -1]), "D" : np.array([0, 1])}
@@ -37,14 +38,19 @@ with open("input.txt") as input:
 
 print(len(visited))
 
-for i in range(-50, 50):
-    temp = ""
-    for j in range(-50, 50):
+data = []
+
+for i in range(-500, 500):
+    temp = []
+    for j in range(-500, 500):
         if (i,j) in visited:
-            temp += "# "
+            temp.append([0,0,0])
         else:
-            temp += ". "
-    print(temp)
+            temp.append([255,255,255])
+    data.append(temp)
 
+data = np.array(data)
 
+plt.imshow(data, interpolation='nearest')
+plt.show()
 
