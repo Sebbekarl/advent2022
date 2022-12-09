@@ -3,6 +3,10 @@
 3: rust
 4: ruby
 5: java
+6: clojure
+7: rust
+8: python
+9: python
 
 typeScript
 clojure
